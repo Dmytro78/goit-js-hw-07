@@ -3,3 +3,25 @@
 Создай переменную counterValue в которой будет хранится текущее значение счетчика.
 Создай функции increment и decrement для увеличения и уменьшения значения счетчика
 Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса*/
+
+const button = {
+  increase: document.querySelector("[data-action='increment']"),
+  decrease: document.querySelector("[data-action='decrement']"),
+  span: document.querySelector("#value"),
+};
+
+let counterValue = 0;
+const increment = () => {
+  counterValue += 1;
+
+ button.span.textContent = counterValue;
+};
+
+const decrement = () => {
+  counterValue -= 1;
+
+  button.span.textContent = counterValue;
+};
+
+button.increase.addEventListener("click", increment);
+button.decrease.addEventListener("click", decrement);
