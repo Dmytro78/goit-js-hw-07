@@ -27,7 +27,7 @@ function validator(isValid) {
 }
 
 const onInput = () => {
-  const action = validator(inputVal.value.length >= totalLength);
+  const action = validator(inputVal.value.length === totalLength);
     inputVal.classList.add(action.validAdd);
     inputVal.classList.remove(action.validRemove);
 };
