@@ -11,12 +11,21 @@ const ingredients = [
   'Приправы',
 ];
 
-const ulList = document.querySelector('#ingredients');
-console.log(ulList);
 
+const ulList = document.querySelector('#ingredients');
+/*
 ingredients.forEach((ingredients) => {
   const items = document.createElement("li");
   items.textContent = ingredients;
   ulList.appendChild(items);
 });
+*/
 
+const createIngredients = (ingredients) => ingredients.map((ingredient) => {
+    const items = document.createElement("li");
+    items.textContent = ingredient;
+    return items;
+  });
+
+const elements = createIngredients(ingredients);
+ulList.append(...elements);
