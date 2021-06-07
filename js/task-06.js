@@ -6,9 +6,11 @@
 Для добавления стилей, используй CSS - классы valid и invalid.
 */
 
+
 const inputVal = document.querySelector("#validation-input");
 const totalLength = Number(inputVal.getAttribute("data-length"));
 
+/*
 const onInput = () => {
   if (inputVal.value.length === totalLength) {
     inputVal.classList.add("valid");
@@ -17,6 +19,17 @@ const onInput = () => {
     inputVal.classList.add("invalid");
     inputVal.classList.remove("valid");
   }
+};
+*/
+
+function validator(isValid) {
+  return isValid ? { validAdd: 'valid', validRemove: 'invalid' }:{ validAdd: 'invalid', validRemove: 'valid' }
+}
+
+const onInput = () => {
+  const action = validator(inputVal.value.length >= totalLength);
+    inputVal.classList.add(action.validAdd);
+    inputVal.classList.remove(action.validRemove);
 };
 
 inputVal.addEventListener("blur", onInput);
